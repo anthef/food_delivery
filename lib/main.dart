@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/auth/login_of_register.dart';
+import 'package:food_delivery/pages/home_page.dart';
+import 'package:food_delivery/pages/settings_page.dart';
 import 'package:food_delivery/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +14,6 @@ void main() {
         ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

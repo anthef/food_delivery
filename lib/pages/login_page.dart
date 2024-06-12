@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_textfield.dart';
+import 'package:food_delivery/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -17,6 +17,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  void login() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,20 +72,20 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 25,
           ),
-          MyButton(text: 'Sign In', onTap: () {}),
+          MyButton(text: 'Sign In', onTap: login),
           const SizedBox(
             height: 25,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Not a member?',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                )
+              Text('Not a member?',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  )),
+              const SizedBox(
+                width: 4,
               ),
-              const SizedBox(width: 4,),
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
@@ -84,8 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,
-                  )
-                
+                  ),
                 ),
               ),
             ],
