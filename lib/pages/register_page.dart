@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_textfield.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
-  const LoginPage({
+  const RegisterPage({
     super.key,
     required this.onTap,
   });
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 25,
           ),
-          Text('Food Delivery App',
+          Text("Let's create an account for you",
               style: TextStyle(
                 fontSize: 16,
                 color: Theme.of(context).colorScheme.inversePrimary,
@@ -40,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 25,
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: MyTextfield(
@@ -51,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 10,
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: MyTextfield(
@@ -59,10 +62,24 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
           ),
+
+          const SizedBox(
+            height: 10,
+          ),
+          
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: MyTextfield(
+              controller: confirmPasswordController,
+              hintText: 'Confirm password',
+              obscureText: true,
+            ),
+          ),
+
           const SizedBox(
             height: 25,
           ),
-          MyButton(text: 'Sign In', onTap: () {}),
+          MyButton(text: 'Sign Up', onTap: () {}),
           const SizedBox(
             height: 25,
           ),
@@ -70,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Not a member?',
+                'Already have an account?',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                 )
@@ -79,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               GestureDetector(
                 onTap: widget.onTap,
                 child: Text(
-                  'Register now',
+                  'Login now',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                     fontWeight: FontWeight.bold,
